@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>RGBA test page</title>
+</head>
+
+<body>
+
+	<div id="Div1" class="testDiv">24-bit PNG: 1 file, 123.85 KB</div>
+	<div id="Div2" class="testDiv">8-bit PNG (tinypng): 1 file, 48.15 KB</div>
+	<div id="Div3" class="testDiv">Separate RGB and A JPEGs. 2 files, 25.33 KB total. RGB image at 30% quality, A image at 10% quality.</div>
+	<div id="Div4" class="testDiv">Combined RGBA JPEG. 1 file, 19.97 KB. Image at 8% quality.</div>
+
+	<style>
+		body {
+			background-image: url(images/checkerboard.png);
+			font-family: "Helvetica-Neue", Helvetica, Arial, sans-serif;
+		}
+		
+		.testDiv {
+			box-sizing: border-box;
+			width: 100%;
+			height: 139px;
+			background-size: contain;
+			background-position: 0 0;
+			background-repeat: no-repeat;
+			padding-left:450px;
+		}
+		
+		#Div1 {
+			background-image:url(images/test-png24.png);	
+		}
+		#Div2 {
+			background-image:url(images/test-tinypng.png);	
+		}
+		
+	</style>
+
+	<script src="rgba.js"></script>
+	<script>
+		rgba.getCanvas("images/test-rgb.jpg", "images/test-a.jpg", function (canvas) {
+			rgba.setBackground(document.getElementById("Div3"), canvas);
+		});
+		rgba.getCanvas("images/test-rgba.jpg", function (canvas) {
+			rgba.setBackground(document.getElementById("Div4"), canvas);
+		});
+	</script>
+
+</body>
+
+</html>
