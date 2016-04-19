@@ -5,7 +5,7 @@ window.rgba = window.rgba || (function () {
 		/**
 		rgbFile: URL of an image containing RGBA image data, typically a JPEG
 		aFile: URL of an image containing A (alpha/opacity) image data, typically a JPEG, but sometimes a PNG would be a better bet.
-		callback: function to call once the texture atlas is ready.
+		callback: function to call once the compositing is complete.
 		**/
 
 		function onImgLoaded() {
