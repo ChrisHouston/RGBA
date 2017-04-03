@@ -85,11 +85,13 @@ window.rgba = window.rgba || (function () {
 		var aImg = (singleImage) ? rgbImg : new Image();
 
 		rgbImg.ready = false;
+		rgbImg.crossOrigin = "Anonymous";
 		rgbImg.onload = onImgLoaded;
 		rgbImg.src = rgbFile;
 
 		if (!singleImage) {
 			aImg.ready = false;
+			aImg.crossOrigin = "Anonymous";
 			aImg.onload = onImgLoaded;
 			aImg.src = aFile;
 		}
